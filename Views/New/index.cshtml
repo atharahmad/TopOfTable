@@ -1,0 +1,73 @@
+@model TopOfTable.Models.SystemObject
+<!--body-->
+<div id="body" onchange="myFunction()" style="margin:0 auto; padding-left:230px; padding-right:230px; color:gray;">
+    <!-- Jumpbroton -->
+    <div style="margin-top:20px;" class="page-header">
+        <input style="display:none" name="entry.635730690" value="0" />
+        <input style="display:none" name="entry.1797774479" value="" + tableId + "" />
+        <h3 style="width:7%; float:left; margin:0">Class</h3>
+        <div style="width:20%; float:left;" class="input-group">
+            <input id="cls" name='entry.933702072' style="width:80%;" readonly=""  type="text" placeholder="Choose One" class="form-control">
+            <button style="width:20%;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu pull-right">
+                for (var i = 0; i < classes.length; i++)
+                    <li><a onclick="setClass(" + i + ");"> classes[i] + </a></li>
+            </ul>
+        </div>
+        <h3 style="width:13.5%; padding-left:1%; float:left; margin:0">Sub-Class</h3>
+        <div style="width:20%; float:left;" class="input-group">
+            <input id="scs" name='entry.813013320' style="width:80%;" readonly="" type="text" placeholder="Choose One" class="form-control">
+            <button style="width:20%;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul id="scsUl" class="dropdown-menu pull-right"></ul>
+        </div>
+        <h3 style="width:19.5%; padding-left:1%; float:left; margin:0">Very Sub-Class</h3>
+        <div style="width:20%;" class="input-group">
+            <input id="vsc" name='entry.1766413975' style="width:80%; float:left;" readonly="" type="text" placeholder="Choose One" class="form-control">
+            <button style="width:20%;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul id="vscUl" class="dropdown-menu pull-right"></ul>
+        </div>
+    </div>
+    <div class="page-header">
+        <div class="panel panel-primary" style="height:auto; padding-bottom:15px">
+            <h4 style="float:right; margin:0; text-align:center; font-size:16px;" class="panel-heading">Followers: " + followers + </h4>
+            <h4 style="float:left; margin:0; text-align:center; font-size:16px;" class="panel-heading">Votes: " + totalVotes + </h4>
+            <h4 style="margin:0; padding:0;" class="panel-heading"><input name='entry.1678875226' style="text-align:center; margin:0 auto; height:40px; width:50%;" type="text" placeholder="Name Of Table" class="form-control"></h4>
+            <table class="table"><thead><tr><th style="text-align:left">
+                <div style="padding-right:1%; float:right"><button class="btn btn-default">Cancel</button></div>
+                <div style="padding-right:2%; float:right"><button class="btn btn-default">Done</button></div>
+            </th></tr></thead></table>
+            <table class="table" style="float:left; width:100%;"><thead><tr style="background:whitesmoke; text-align:center;">
+                <th style="width:5.5%">#</th> <th style="width:5.5%">Icon</th> <th style="width:17.5%">Name</th>
+                <th style="width:17.5%">Type</th> <th style="width:12%">Votes</th> <th style="width:42%">Image</th>
+            </tr><tr><td></td></tr></thead></table>
+            <div style="float:right; width:40%"><table class="table"><tbody><tr><td>
+                <div id="tb" + classId + "_image" style="width:100%; height:373px; background: url('../images/.jpg ') no-repeat; background-position:center; background-size:cover;">
+                    <div class="btn-group dropup" style="float:right; width:25%; padding-top:300px">
+                        <input style="display:none" name="entry." + cell[0][3] + "" value="" + votes + "" />
+                        <button style="width:100%; height:50px;" class="btn btn-primary">Vote it!</button>
+                    </div>
+                    <div style="width:75%; padding-top:300px;">
+                        <p id="tb" + classId + "_news" style="color:black; background-color:white; height:50px; opacity:.5">This is a simple hero unit.<br /> 125 people average rating : 4 . 3</p>
+                    </div>
+                </div>
+            </td></tr><tr><td></td></tr></tbody></table></div>
+            <div style="overflow-y:scroll; overflow-x:hidden; width:60%; height:391px;">
+                <table class="table"><tbody>
+                </tbody></table>
+            </div>
+        </div>
+
+    </div>
+    <div style="overflow-x:scroll; overflow-y:hidden; width:100%; height:140px;">
+        <div id="tilewidth" style="width:" + (182 * noOfTables) + "px; height:140px;">
+        for (var tableNo = 0; tableNo < noOfTables; tableNo++) {
+        <div style="width:167px; margin-right:15px; float:left">
+            <a href="javascript:;" onmouseover="DimOff(" + classId + "," + tableNo + ")" onmouseout="DimOn(" + classId + "," + tableNo + ")" onclick="SwitchTile(" + classId + "," + tableNo + ")" style="text-decoration:none; float:left; width:167px; height:120px; background:url('../images/" + tableNo + ".jpg ')no-repeat; background-position:center; background-size:cover;">
+                <h4 id="tb" + classId + "_tile" + tableNo + "" class="deactivetile">Top 10 Sports Cars</h4>
+            </a>
+        </div>
+        }
+        </div>
+    </div>
+</div>
+       

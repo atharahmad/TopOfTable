@@ -1,0 +1,69 @@
+@model TopOfTable.Models.SystemObject
+<!--body-->
+<div id="body" onchange="myFunction()" style="margin:0 auto; padding-left:230px; padding-right:230px; color:gray;">
+    <div>
+        <form method="post" action="/Personal/Update/@Model.person.Id"> 
+            <table style="width:66.5%; float:right">
+                <tr style="background:whitesmoke; text-align:left"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">Name:</h4>
+                    @Html.TextBoxFor(x => x.person.Name, new { @class="form-control", style = "float:left;", type="text" })
+                </td></tr>
+                <tr style="text-align:left"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">Title:</h4>
+                    @Html.TextBoxFor(x => x.person.Title, new { @class="form-control", style = "float:left;", type="text" })
+                </td></tr>
+                <tr style="background:whitesmoke; text-align:left"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">WebPage:</h4>
+                    @Html.TextBoxFor(x => x.person.Web, new { @class="form-control", style = "float:left;", type="text"})
+                </td></tr>
+                <tr style="text-align:left"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">Phone No:</h4>
+                    @Html.TextBoxFor(x => x.person.Phone, new { @class="form-control", style = "float:left;", type="text" })
+                </td></tr>
+                <tr style="background:whitesmoke; text-align:left"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">Email:</h4>
+                    @Html.TextBoxFor(x => x.person.Email, new { @class="form-control", style = "float:left;", type="email", required="required" })
+                </td></tr>
+                <tr style="text-align:left; margin:5px;"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">Password:</h4>
+                    @Html.TextBoxFor(x => x.person.Password, new { @name = "Password", @class="form-control", style = "float:left;", type="password", required="required" })
+                </td></tr>
+                <tr style="background:whitesmoke; text-align:left"><td>
+                    <h4 style="padding-left:20px; width:30%; float:left">Gender:</h4>
+                    <h4 style="text-align:left;"></h4>
+                    <button style="float:right; padding:2px" type="submit" class="btn btn-primary btn-lg">Update</button>
+                    <label style="margin:0; width:20%;" class="control radio">
+                        @Html.RadioButtonFor(x => x.person.Gender, "true")<span class="radio-label">Male</span>
+                    </label>
+                    <label style="margin:0; width:20%;" class="control radio">
+                        @Html.RadioButtonFor(x => x.person.Gender, "false")<span class="radio-label">Female</span>
+                    </label>
+                </td></tr>
+            </table>
+        </form>
+        <div id="main0" class="jumbotron" style="width:32%; height:288px; background:url(../images/slide0.jpg)no-repeat; background-position:center; background-size:cover;">
+            <div style="float:right; padding-top:170px;">
+                <button type="submit" class="btn btn-primary btn-lg">Change</button>
+            </div>
+        </div>
+        <div class="bs-docs-section">
+            <div class="page-header">
+                <h1>Fellows</h1>
+            </div>
+            <h4 id="thumbnails-default">[ A - M ]</h4>
+        for (var r = 1; r <= 3; r++) {
+            <div style="height:150px;">
+                <a href="javascript:;" style="padding-top:90px; text-decoration: none; float:left; width:15.5%; height:130px; background: url('../images/6.jpg ') no-repeat; background-position:center; background-size:cover;">
+                    <h4 id="tb" + classId + "_tile0" style="color:black; background-color:white; height:25px; opacity:.7; text-align:center;">Athar Ahmad Ch</h4>
+                </a>
+            for (var fellowNo = 1; fellowNo <= 5; fellowNo++) {
+                <h1 style="float:left; width:1.4%;"></h1>
+                <a href="javascript:;" style="padding-top:90px; text-decoration: none; float:left;  width:15.5%; height:130px; background: url('../images/" + fellowNo + ".jpg ') no-repeat; background-position:center; background-size:cover;">
+                    <h4 id="tb" + classId + "_tile" + fellowNo + "" style="color:black; background-color:white; height:25px; opacity:.7; text-align:center;">Athar Ahmad</h4>
+                </a>
+            }
+            </div>
+        }
+        </div>
+    </div>
+</div>

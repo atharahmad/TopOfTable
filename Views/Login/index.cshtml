@@ -1,0 +1,62 @@
+@model TopOfTable.Models.SystemObject
+<!--body-->
+<div id="body" onchange="myFunction()" style="margin:0 auto; padding-left:230px; padding-right:230px; color:gray;">
+    <form method="post" action="/Login/SignIn">     
+        <div style="background-color:#428bca; color:white;">
+            <h3 style="text-align:center; padding:4px;">@Html.Label("","Sign In")</h3>
+        </div>
+        <div style="background-color:whitesmoke;">
+            <h3 style="width:8%; float:left; margin:0">Email</h3>
+            @Html.TextBoxFor(x => x.person.Email, new { @class="form-control", style = "float:left; width:26%;", type="email", placeholder="steve@xyz.com", required="required" })
+            <h3 style="width:14%; padding-left:1%; float:left; margin:0">Password</h3>
+            @Html.TextBoxFor(x => x.person.Password, new { @class="form-control", style = "float:left; width:26%;", type="password", required="required" })
+            <button style="float:right; width:10%; margin-left:1%" class="btn btn-default">Cancel</button>
+            <button style="width:10%; margin-left:5%" class="btn btn-default">Done</button>
+            <label style="float:right; margin-left:1%">
+                <input type="checkbox" checked="checked" name="remember"/> Remember me
+            </label>
+            <label>
+                <input type="radio" name="forget"/> Forget Password
+            </label>
+        </div>
+    </form>
+    <form method="post" action="/Login/SignUp">
+        <div style="padding-top:50px;"><table style="width:58.5%; float:right">
+            <tr style="background:#428bca; color:white; text-align:left"><td>
+                <h3 style="margin:3px; text-align:center;">@Html.Label("","Sign Up")</h3>
+            </td></tr>
+            <tr><td><h3></h3></td></tr>
+            <tr style="background:whitesmoke;"><td>
+                <h4 style="text-align:center;width:20%;float:left"> Name </h4>
+                @Html.TextBoxFor(x => x.person.Name, new { @class="form-control", style = "width:80%", type="text" })
+                </td></tr>
+            <tr><td><h3></h3></td></tr>
+            <tr style="background:whitesmoke;"><td>
+                <h4 style="text-align:center;width:20%;float:left"> Email </h4>
+                @Html.TextBoxFor(x => x.person.Email, new { @class="form-control", style = "width:80%", type="email", placeholder="steve@xyz.com", required="required" })
+                </td></tr>
+            <tr><td><h3></h3></td></tr>
+            <tr style="background:whitesmoke;"><td>
+                <h4 style="text-align:center;width:20%;float:left"> Password </h4>
+                @Html.TextBoxFor(x => x.person.Password, new { @class="form-control", style = "width:80%", type="password", required="required" })
+             </td></tr>
+            <tr><td><h3></h3></td></tr>
+            <tr style="background:whitesmoke; text-align:left"><td> 
+                <label style="width:40%;" class="control radio">
+                    @Html.RadioButtonFor(x => x.person.Gender, "true")<span class="radio-label">Male</span>
+                </label>
+                <label style="padding-top:15px; width:40%;" class="control radio">
+                    @Html.RadioButtonFor(x => x.person.Gender, "false")<span class="radio-label">Female</span>
+                </label>
+            </td></tr>
+            <tr><td><h3></h3></td></tr>
+            <tr style="background:whitesmoke;"><td>
+                <button style="float:right; width:15%; margin-left:2%" class="btn btn-default">Cancel</button>
+                <button type="submit" style="float:right; width:15%;" class="btn btn-default">Done</button>
+            </td></tr>
+        </table></div>
+    </form>
+    <div id="main0" class="jumbotron" style="width:40%; height:352px; background:url(../images/slide0.jpg)no-repeat; background-position:center; background-size:cover;">
+        <div style="padding-top:230px;"><a class="btn btn-primary btn-lg">Learn More</a></div>
+    </div>
+</div>

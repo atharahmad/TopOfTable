@@ -1,0 +1,194 @@
+﻿@model TopOfTable.Models.SystemObject
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>World Of Tables</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <link rel="icon" href="~/Images/toplogoblack.png"/>
+        <link rel="stylesheet" type="text/css" href="iconFont.css"/>
+        <link rel="stylesheet" type="text/css" href="~/Content/css/metro-bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="~/Content/css/docs.css"/>
+        <link rel="stylesheet" type="text/css" href="~/Content/css/image_fade.css"/>
+        <link rel="stylesheet" type="text/css" href="~/Content/css/topoftable.css"/>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav id="nav_left" class="navbar navbar-default navbar-static-top nav_left" role="navigation">
+            <div style="margin-left:15px; margin-right:12px; float:left; color:white">
+                <a href="/home">
+                    <img src="~/Images/toplogowhite.png" id="logo" onmouseover="ccolor('black')" onmouseout="ccolor('white')" style="height:50px"/>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse" style="padding:0;">
+                <div style="float:left;"> 
+                    <h6 style="color:white; margin-top:15px; font-size:20px;">TopOfTable</h6>
+                </div>
+                <ul style="cursor:pointer;" class="nav navbar-nav navbar-left">
+                    <li><a class="dropdown-toggle" data-toggle="dropdown">| <span style="color:white" class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Fineblock</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div style="float:right; min-width:215px;">
+            <nav class="navbar navbar-default navbar-static-top nav_right" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div style="float:left;">
+                    <h4 style="cursor:pointer; width:135px; margin-left:10px; margin-top:15px;  text-align:right;">
+                        <a href="/login" style="color:white;">@Model.person.Name</a> 
+                    </h4>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex2-collapse" style="padding-left :0;">
+                    <ul class="nav navbar-nav navbar-right" style="padding-right:15px">
+                        <li class="dropdown"  style="float:left;">
+                            <a href="/Personal" class="dropdown-toggle" style="padding:10px" data-toggle="dropdown">
+                                <img src="~/Images/6.jpg" style="height:32px"/>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <nav class="navbar navbar-default nav_center" role="navigation">
+            <div class="navbar-header"  style="padding-right:230px;">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex3-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex3-collapse" style="padding:0;">
+                <form class="navbar-form navbar-left" style="padding-left:220px; width:100%" role="search">
+                    <div class="form-group" style="width:100%; float:left; ">
+                        <input id="searchbar" type="text" class="form-control" placeholder="Search for Tables" style="float:left; margin-left:10px; width:50%"/>
+                        <ul class="nav navbar-nav nav_center" style="width:20%;">
+                            <li>
+                                <a href="javascript:;" class="dropdown-toggle" style="padding:5px" data-toggle="dropdown">
+                                    <img  id="search" src="~/Images/search.png" style="height:22px"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <!-- Sidebar Left -->
+        <div style="float:left; min-width:215px;">
+            <div style="float:left; width:15px;">
+                <a id="lefty" onclick="leftsidebar()" style="cursor:pointer; text-decoration:line-through;">| .</a>
+            </div>
+            <div id="sb_left" class="bs-sidebar hidden-print affix-top" role="complementary" style="padding-left:15px;">
+                <ul class="nav bs-sidenav" style="position:fixed; width:200px; height:100%; margin:0px;">
+                    <li class="active">
+                        <div style="height:1px; background-color:lightgray;"></div>
+                        <a href="#nav">Tables:</a>
+                        <div style="height:1px; background-color:lightgray;"></div>
+                    </li>
+                    <li style="overflow-y:scroll; overflow-x:hidden;">
+                        <ul class="nav bs-sidenav" style="margin:0px">
+                        @for (int i = 0; i < Model.classList.Count; i++ )
+                        {
+                            <li><a href="#" onclick="Expand('fellow','no'," + i + ")"><div style="float:left;padding-right:2%;" id="no" + i + "">-</div> @Model.classList[i].Name </a>
+                                <div id="fellow" + i + "" style="display:none; padding-left:10%;">
+                                    <div style="height:1px; background-color:lightgray;"></div>
+                                    <ul class="nav bs-sidenav" style="margin:0px; font-size:13px;">
+                                        for (var j = 0; j < fellows[i].length; j++) {
+                                            <li><a href="#tiles">" + fellows[i][j] + </a></li>
+                                        }
+                                        <li><a href="topoftable.com\find?">Add Fellow ?</a></li>
+                                    </ul>
+                                    <div style="height:1px; background-color:lightgray;"></div>
+                                </div>
+                            </li>
+                        }
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <div style="height:1px; background-color:lightgray;"></div>
+                    </li>
+                    <li><a href="/new" style="text-decoration:underline">+New Table ?</a></li>
+                    <li class="active">
+                        <div style="height:1px; background-color:lightgray;"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sidebar Right -->
+        
+            
+        <div style="float:right; min-width:215px;">
+            <div style="float:right; min-width:15px;">
+                <a href="javascript:;" id="righty" onclick="rightsidebar()" >. |</a>
+            </div>
+            <div id="sb_right" class="bs-sidebar hidden-print affix-top" role="complementary">
+                <ul class="nav bs-sidenav" style="width:200px;  position:fixed; height:100%; margin:0px">
+                    <li class="active">
+                        <div style="height:1px; background-color:lightgray;"></div>
+                        <a href="#nav">Tables:</a>
+                        <div style="height:1px; background-color:lightgray;"></div>
+                    </li>
+                    <li style="overflow-y:scroll; overflow-x:hidden;">
+                        <ul class="nav bs-sidenav" style="margin:0px">
+                        @for (int i = 0; i < Model.classList.Count; i++ )
+                        {
+                            <li><a href="#" onclick="Expand('fellow','no'," + i + ")"><div style="float:left;padding-right:2%;" id="no" + i + "">-</div> @Model.classList[i].Name </a>
+                                <div id="fellow" + i + "" style="display:none; padding-left:10%;">
+                                    <div style="height:1px; background-color:lightgray;"></div>
+                                    <ul class="nav bs-sidenav" style="margin:0px; font-size:13px;">
+                                        for (var j = 0; j < fellows[i].length; j++) {
+                                            <li><a href="#tiles">" + fellows[i][j] + </a></li>
+                                        }
+                                        <li><a href="topoftable.com\find?">Add Fellow ?</a></li>
+                                    </ul>
+                                    <div style="height:1px; background-color:lightgray;"></div>
+                                </div>
+                            </li>
+                        }
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <div style="height:1px; background-color:lightgray;"></div>
+                    </li>
+                    <li><a id="addG" style="text-decoration:underline" onclick="AddGroup()">+New Class ?</a></li>
+                    <li class="active">
+                        <div style="height:1px; background-color:lightgray;"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript" src="~/Scripts/js/jquery-1.8.0.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/bootstrap.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/image_fade.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/styles.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/sidebars.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/topoftable.js"></script>
+    </body>
+</html>

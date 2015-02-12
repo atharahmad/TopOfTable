@@ -1,0 +1,37 @@
+th,tr{ text-align:center;}
+.deactivetile   { width:100%; height:100%; margin:0; color:white; padding-top:25%; text-align:center; background-color:black; opacity:.5; }
+.activetile     { width:100%; height:100%; margin:0; color:white; padding-top:25%; text-align:center; background-color:#428bca; opacity:1;}
+.nav_left {
+    float: left;
+    min-width: 215px;
+    position: fixed;
+    height: 51px;
+}
+.nav_right {
+    width: 215px;
+    height: 51px;
+    position: fixed;
+}
+
+#new {
+    height: 30px;
+}
+.img_sidebar {
+    width: 50px;
+    height: 50px;
+}
+#righty {
+    padding-left: 3px;
+    text-decoration: line-through;
+    position: fixed;
+}
+.form-control   {padding-left:10px; width:320px}
+.sbleftdiv1 {width:50px; height:50px; background:url(https://googledrive.com/host/0B-ESkiu4GRhZOFZxY3FMeGdDdDA);}
+.sbright {padding-left:3px; text-decoration:line-through; position:fixed}
+.main0 {background:url(https://googledrive.com/host/0B-ESkiu4GRhZMS1FZFVMUlZULWM);}
+.main1 {background:url(https://googledrive.com/host/0B-ESkiu4GRhZdE0yenFyNDFubEU);}
+.main2 {background:url(https://googledrive.com/host/0B-ESkiu4GRhZMVhtdWJPbXR0UEE);}
+.main3 {background:url(https://googledrive.com/host/0B-ESkiu4GRhZT1NPblktdnZoV3c);}
+.main4 {background:url(https://googledrive.com/host/0B-ESkiu4GRhZNkZoNkdlbGszdmc);}
+.main {background-position:center; background-size:cover;}
+.add-row {width:15%; margin-right:2%; float:left;}
